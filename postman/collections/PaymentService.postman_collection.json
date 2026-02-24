@@ -1,0 +1,85 @@
+{
+  "info": {
+    "_postman_id": "da36097e-6fd4-4754-8394-db501851b7eb",
+    "name": "PaymentService",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create",
+      "id": "aeb64e47-259c-42b2-b127-aeb35cc677b7",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"concept\": \"Compra de productos\",\r\n  \"productCount\": 3,\r\n  \"payer\": \"Conrado\",\r\n  \"payee\": \"Tienda ABC\",\r\n  \"totalAmount\": 1500.50,\r\n  \"status\": \"PENDING\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/payments",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "payments"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GetStatus",
+      "id": "cac8b677-ed07-4d45-a197-f2d754ba3c76",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/payments/{{paymentId}}/status",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "payments",
+            "{{paymentId}}",
+            "status"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "UpdateStatus",
+      "id": "6a9176a3-cb0b-4560-a195-a9fabde4bec7",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"status\": \"PROCESSING\" }",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/payments/{{paymentId}}/status",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "payments",
+            "{{paymentId}}",
+            "status"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

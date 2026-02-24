@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "payment.create.request.schema.json",
+  "title": "CreatePaymentRequest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["concept", "productCount", "payer", "payee", "totalAmount"],
+  "properties": {
+    "concept": { "type": "string", "minLength": 1 },
+    "productCount": { "type": "integer", "minimum": 1 },
+    "payer": { "type": "string", "minLength": 1 },
+    "payee": { "type": "string", "minLength": 1 },
+    "totalAmount": { "type": "number", "exclusiveMinimum": 0 },
+    "status": {
+      "type": "string",
+      "enum": ["PENDING", "PROCESSING", "COMPLETED", "FAILED", "CANCELLED"]
+    }
+  }
+}

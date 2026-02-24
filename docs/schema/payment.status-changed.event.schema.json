@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "payment.status-changed.event.schema.json",
+  "title": "PaymentStatusChangedEvent",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["paymentId", "oldStatus", "newStatus", "occurredAt"],
+  "properties": {
+    "paymentId": { "type": "string", "minLength": 1 },
+    "oldStatus": {
+      "type": "string",
+      "enum": ["PENDING", "PROCESSING", "COMPLETED", "FAILED", "CANCELLED"]
+    },
+    "newStatus": {
+      "type": "string",
+      "enum": ["PENDING", "PROCESSING", "COMPLETED", "FAILED", "CANCELLED"]
+    },
+    "occurredAt": {
+      "description": "Instant timestamp (ISO-8601 preferred).",
+      "oneOf": [
+        { "type": "string", "format": "date-time" },
+        { "type": "number" }
+      ]
+    }
+  }
+}

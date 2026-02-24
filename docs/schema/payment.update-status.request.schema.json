@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "payment.update-status.request.schema.json",
+  "title": "UpdatePaymentStatusRequest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["status"],
+  "properties": {
+    "status": {
+      "type": "string",
+      "enum": ["PENDING", "PROCESSING", "COMPLETED", "FAILED", "CANCELLED"]
+    }
+  }
+}
